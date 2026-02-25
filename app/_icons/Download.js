@@ -1,0 +1,3 @@
+export default function Download (){
+    return(<svg viewBox="0 0 24 24" fill="none" filter="drop-shadow(2px 2px 2px rgba(0,0,0,0.9))"  > <path d="M5 12V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V12" stroke="white" strokeLinecap="round" strokeLinejoin="round"></path> <path d="M12 3L12 15M12 15L16 11M12 15L8 11" stroke="white" strokeLinecap="round" strokeinejoin="round"></path> </svg>)
+}
