@@ -29,7 +29,7 @@ export default function DaycareAdmin({reportedToday, allChildren}) {
      </div>
 
      <form onSubmit={handleSubmit}> 
-      {confirm ? <div className="flex flex-row items-center gap-3 justify-center bg-orange-200/20 uppercase text-stone-700/80 font-bold mt-5 border-orange-500/70 rounded p-10"> <div>Report for</div> <div className="text-orange-600/80 uppercase font-bold tracking-widest">{form.name}</div> successfully send.</div> : <fieldset className="flex flex-col py-12">
+      {confirm ? <div className="flex flex-row items-center gap-3 justify-center bg-orange-200/20 uppercase text-stone-700/80 font-bold border-orange-500/70 rounded p-10"> <div>Report for</div> <div className="text-orange-600/80 uppercase font-bold tracking-widest">{form.name}</div> successfully send.</div> : <fieldset className="flex flex-col py-10">
       <SelectChild allChildren={allChildren}/>
 
       {form.name && (<>

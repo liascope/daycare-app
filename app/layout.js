@@ -9,17 +9,23 @@ const playpen = Playpen_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata = {
-  title: "Daycare App",
-  description: "Daily child reports.",
-};
 
+export const metadata = {
+  title: { template:"%s | Daycare App",
+    default: 'Liascope Daycare',
+  description: "Daily child reports.", },
+  icons: {
+      icon: "/favicon.png",    
+      shortcut: "/favicon.png",
+      apple: "/favicon.png",
+    },
+};
 export default async function RootLayout({ children }) {
  
   return (
     <html lang="en">
  <body className={`${playpen.className} text-gray-700/80 font-semibold bg-linear-to-b from-stone-200 via-stone-50 to-stone-50 tracking-wide border-y-8 border-x-2  border-teal-700 [text-shadow:2px_2px_10px_rgba(0,0,0,0.5)]`}>
-  <div className="flex flex-col h-screen rounded-sm">
+  <div className="flex flex-col min-h-screen pb-20">
    <ScrollHeader header={<Header/>}>
             {children}
           </ScrollHeader>

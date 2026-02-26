@@ -3,6 +3,7 @@ import { useState } from "react"
 import { createUser } from "../_services/actions"
 import SubmitButton from "../_ui/SubmitButton"
 
+
 const initialForm = {
   username: '',
   password: '',
@@ -26,7 +27,7 @@ const handleChange = (field) => (e) =>
  const samePassword = form.password === form.repeatPassword
 
   async function handleAction(formData) {
-    try {
+     try {
       setError('')
       if (!samePassword) throw new Error('Password does not match')
       if (form.role === '-- select --' || form.role === '') throw new Error('Select role')
@@ -41,13 +42,13 @@ const handleChange = (field) => (e) =>
     }
   }
 if (!active) return
-   return ( <form className="absolute rounded z-10 bg-white flex flex-col w-full gap-5 p-2" action={handleAction}>
+   return ( <form action={handleAction}>
          
       {confirm ? <div className="flex flex-col justify-center items-center">
         <div className="text-orange-600/80 uppercase font-bold text-sm tracking-widest">{form.username}</div> as  <div className="text-orange-600/80 uppercase font-bold text-sm tracking-widest" >{form.role}</div> with E-mail:
         <div className="text-orange-600/80 uppercase font-bold text-sm tracking-widest">{form.email}</div> 
        
-        successfully created.</div> :  <>  <label htmlFor="role" className="flex flex-row border-b justify-left gap-9 items-center"> Role:
+        successfully created.</div> :  <div className="flex flex-col gap-6 px-5">  <label htmlFor="role" className="flex flex-row border-b justify-left gap-9 items-center"> Role:
              <select id='role' required className="focus:outline-none focus:ring-0 focus:border-t-transparent flex-1 w-full h-full" name='role' value={form.role} onChange={handleChange('role')} >
               <option>-- select --</option>
             <option value='parent'>Parent</option>
@@ -68,7 +69,7 @@ if (!active) return
              {error && <p className='text-red-600/80 uppercase font-bold text-sm text-center'>{error}</p>} 
              <div className="w-full text-center">
             <SubmitButton  padding='py-0'>Add User</SubmitButton></div>
-            </>}
+            </div>}
           </form>
           )
 }

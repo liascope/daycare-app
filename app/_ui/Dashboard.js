@@ -62,7 +62,7 @@ while (photos.length < 3) {
         ${index === 0 ? "rotate-5 z-20  ml-18" : ""}
         ${index === 1 ? "ml-10 mb-2 -rotate-20 z-10" : ""}
         ${index === 2 ? "z-0 ml-2 mt-1" : ""}
-      `} > <Image className="absolute rounded-full object-cover brightness-90 saturate-75 contrast-90" src={src} alt={`img${index}`} fill sizes="100px" priority/> </div> ))}
+      `} > <Image className="absolute rounded-full object-cover brightness-90 saturate-75 contrast-90" src={src} alt={`img${index}`} fill sizes="100px"/> </div> ))}
 </div>
 
 <div className="p-3 w-full flex items-center justify-center  ">Photos</div>

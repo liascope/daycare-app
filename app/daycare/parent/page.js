@@ -2,6 +2,7 @@
 import { getUser, getReport } from "@/app/_services/actions"
 import { notFound } from "next/navigation"
 
+
 import Dashboard from "@/app/_ui/Dashboard"
 import Reports from "@/app/_features/Reports"
 import Spinner from "@/app/_ui/Spinner"
@@ -19,7 +20,7 @@ const user = await getUser()
   return (
     <>
      <Dashboard data={reports}  />
-     <Reports data={reports}/>   
+     <Reports data={reports}/>    
     </>
   )
 }

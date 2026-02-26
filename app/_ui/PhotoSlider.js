@@ -55,8 +55,7 @@ export default function PhotoSlider({ images}) {
                 className={`absolute object-contain transition-transform duration-500 group-hover:scale-103  brightness-90 
              saturate-75 
              contrast-90  `}
-                onLoad={() => handleImageLoad(index)}
-                
+                onLoad={() => handleImageLoad(index)}   
               />
             </div>
           </div> 
