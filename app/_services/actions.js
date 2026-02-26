@@ -5,6 +5,26 @@ import { supabaseAdmin } from "../lib/supabase/server";
 import { createClient, createReadOnly} from "../lib/supabase/serverClient";
 import { revalidatePath } from "next/cache";
 
+// 
+// import JSZip from "jszip"
+// import fetch from "node-fetch"
+// 
+// export async function downloadImagesServer(photos) {
+//   const zip = new JSZip()
+// 
+//   await Promise.all(
+//     photos.map(async (photo, index) => {
+//       const res = await fetch(photo.url)
+//       if (!res.ok) throw new Error(`Fehler beim Laden von ${photo.url}`)
+// 
+//       const buffer = Buffer.from(await res.arrayBuffer())
+//       zip.file(photo.title || `image-${index}.png`, buffer)
+//     })
+//   )
+//   return zip.generateAsync({ type: "nodebuffer" })
+// }
+
+
 export async function login (formData){
   const supabase = await createClient()
   const role = formData.get('role')
