@@ -10,7 +10,15 @@ export default function DeleteUser({active,allChildren}) {
  const [deletedChild, setDeletedChild] = useState(false)
 
 async function handleDelete() {
-
+if (process.env.NEXT_PUBLIC_DEMO_MODE === "true") { 
+      setDeletedChild(true)
+      setConfirm(`Child ${child.name} successfully deleted`)
+       setTimeout(() => {
+        setConfirm('')
+        setDeletedChild(false)
+        setChild({ id: '', name: '' })
+      }, 3500); 
+      return}
     try {
       await deleteUser(child.id)
       setDeletedChild(true)

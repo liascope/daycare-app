@@ -31,6 +31,14 @@ const handleChange = (field) => (e) =>
       setError('')
       if (!samePassword) throw new Error('Password does not match')
       if (form.role === '-- select --' || form.role === '') throw new Error('Select role')
+
+     if (process.env.NEXT_PUBLIC_DEMO_MODE === "true") { setConfirm((c)=>!c)
+     setTimeout(() => {
+     setConfirm(false)
+      setForm(initialForm);
+  }, 4000); 
+  return}
+
       await createUser(formData)
       setConfirm((c)=>!c)
      setTimeout(() => {
