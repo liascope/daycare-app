@@ -10,7 +10,9 @@ export async function login (formData){
   const role = formData.get('role')
   const { error } = await supabase.auth.signInWithPassword({
       email:formData.get('email'),
-      password:formData.get('password')})
+      password:formData.get('password'),
+      options: { persistSession: false }
+    })
   if (error) {
    return redirect('/?error=invalid')
     //  throw new Error('Invalid credentials')

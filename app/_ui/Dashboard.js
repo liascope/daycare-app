@@ -20,9 +20,9 @@ while (photos.length < 3) {
     </header>
 
         <div className="flex flex-wrap items-center justify-center [text-shadow:1px_2px_2px_rgba(0,0,0,0.5)]
-        text-3xl tracking-wide uppercase font-bold mb-20">
+        tracking-wide uppercase font-bold mb-20">
 <Cards style='border-y-4 text-rose-300 rounded-r-xl border-r -rotate-2 hover:rotate-0 transition-transform duration-200'>
-    <div className="flex justify-center items-center p-7">
+    <div className="flex justify-center items-center p-4">
     <Image
       src={`/emojis/${data?.mood || 0}.png`}
       alt={`emoji-${data?.mood || 0}`}
@@ -35,7 +35,7 @@ while (photos.length < 3) {
     <div className=" p-3 w-full flex items-center justify-center">Mood</div></Cards>
 
 <Cards style='border-y-4 rounded-l-xl border-l rounded-l-xl text-emerald-300 border-l rotate-2 hover:rotate-0 transition-transform duration-200' ><div className="p-3 w-full flex items-center justify-center">Appetite</div>
-        <div className="flex justify-center items-center p-7">
+        <div className="flex justify-center items-center p-2">
     <Image
      src={`/emojis/${data?.eat || 0}.png`}  alt={`emoji-${data?.eat || 0}`}
       width={250}
@@ -45,10 +45,11 @@ while (photos.length < 3) {
     />
   </div>
       </Cards>
+      
 <Cards style='border-y-4 text-violet-300 rounded-r-xl border-r rotate-4 hover:rotate-0 transition-transform duration-200' >
-<div className={`border-4 shadow-2xl scale-80 ${sleepDuration[data?.sleep_duration || 0]?.color} rounded-full flex -rotate-10 text-white items-center justify-center w-full h-full  text-center`}>{sleepDuration[data?.sleep_duration || 0]?.duration}</div>
+<div className={`border-4 shadow-2xl scale-80 text-sm sm:text-lg ${sleepDuration[data?.sleep_duration || 0]?.color} rounded-full flex -rotate-10 text-white items-center justify-center w-full h-full text-center`}>{sleepDuration[data?.sleep_duration || 0]?.duration}</div>
 
-<div className="p-3 w-full flex items-center justify-center  ">Sleep</div>
+<div className="p-5 w-full flex items-center justify-center ">Sleep</div>
 </Cards>
 
 
@@ -58,22 +59,22 @@ while (photos.length < 3) {
 <div className="w-full h-full flex justify-center items-center relative scale-80 ">
 
   {photos.map((src, index) => (
-    <div key={index} className={`absolute border-4 rounded-full w-full h-full shadow-2xl
-        ${index === 0 ? "rotate-5 z-20  ml-18" : ""}
-        ${index === 1 ? "ml-10 mb-2 -rotate-20 z-10" : ""}
-        ${index === 2 ? "z-0 ml-2 mt-1" : ""}
+    <div key={index} className={`absolute border-4 rounded-full w-full h-full shadow-2xl flex-1
+        ${index === 0 ? "rotate-5 z-20 ml-10 sm:ml-18" : ""}
+        ${index === 1 ? "ml-5 sm:ml-10 mb-2 -rotate-20 z-10" : ""}
+        ${index === 2 ? "z-0 ml-0 sm:ml-2 mt-1" : ""}
       `} > <Image className="absolute rounded-full object-cover brightness-90 saturate-75 contrast-90" src={src} alt={`img${index}`} fill sizes="100px"/> </div> ))}
 </div>
 
-<div className="p-3 w-full flex items-center justify-center  ">Photos</div>
+<div className="p-2 sm:p-5 w-full flex items-center justify-center ">Photos</div>
 
 </Cards>
 <Cards style='border-y-4 rounded-l-xl border-l rounded-l-xl text-amber-300 border-l rotate-1 hover:rotate-0 transition-transform duration-200'>
-  <ul className="border-4 shadow-2xl scale-80 rounded-3xl flex -rotate-10 items-center justify-center w-full h-full  text-center text-lg normal-case flex-col  text-shadow-2xs bg-linear-to-bl from-violet-100 via-yellow-200 to-yellow-100">
+  <ul className="border-4 shadow-2xl scale-80 rounded-3xl flex -rotate-10 items-center justify-center w-full h-full  text-center text-xs sm:text-sm lg:text-xl  normal-case flex-col  text-shadow-2xs bg-linear-to-bl from-violet-100 via-yellow-200 to-yellow-100">
     {data?.hashs.length > 0 ? data?.hashs.map((h,i)=><li className="odd:text-amber-600/90 even:text-yellow-600/90" key={i}>{h}</li>) : <div className="text-amber-600 tracking-widest">#noIssues𖤓</div>}
     
   </ul>
-  <div className="p-3 w-full flex items-center justify-center">Issues</div></Cards>
+  <div className="p-5 w-full flex items-center justify-center">Issues</div></Cards>
 </div>
      </div>)
 }
