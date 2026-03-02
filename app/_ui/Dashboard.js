@@ -13,7 +13,15 @@ while (photos.length < 3) {
 }
 
      return (<div className="w-full flex flex-col items-center h-fit py-10 font-extrabold">
-        <header className="[text-shadow:3px_3px_3px_rgba(0,0,0,0.6)] text-5xl flex flex-col md:flex-row text-orange-300/90 md:gap-5 tracking-tighter uppercase justify-center items-end mb-20"> <span className="flex flex-row items-center justify-center"><span className=" text-6xl text-teal-600/90 tracking-widest">{data?.children?.name|| '' }</span>`s DAY,</span> <p className="py-2 normal-case"> {new Date(data?.report_date).toLocaleDateString("de-DE",{
+        <header className="[text-shadow:3px_3px_3px_rgba(0,0,0,0.6)] text-5xl flex flex-col md:flex-row text-orange-300/90 md:gap-5 tracking-tighter uppercase justify-center items-center mb-20"> 
+        
+        <span className="flex flex-row items-center justify-center md:text-6xl text-4xl">
+      
+          <span className="
+        text-teal-600/90 tracking-widest">{data?.children?.name|| '' }</span><span>`s DAY, </span>
+        </span> 
+        
+        <p className="py-2 normal-case md:text-5xl text-3xl"> {new Date(data?.report_date).toLocaleDateString("de-DE",{
     day: "2-digit",
     month: "short",
     year: "numeric" })}</p>

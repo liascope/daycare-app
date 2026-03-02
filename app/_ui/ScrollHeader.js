@@ -49,7 +49,7 @@ export default function ScrollHeader({ header, children }) {
       {/* Content */}
       <main
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-4 "
+        className="flex-1 overflow-y-auto p-1 sm:p-4"
       >
         {children}
       </main>

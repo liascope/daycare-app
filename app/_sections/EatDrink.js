@@ -13,7 +13,7 @@ export default function EatDrink ({data}){
     <h2>{data?.children?.name} ate</h2>
 
 <div className="flex flex-wrap justify-center">
-    { data?.meal?.map(m =>(<div key={m} className="w-30 h-30 relative m-3"> <Image className="absolute w-30 h-30" src={`/food/${m?.replace(/\s+/g, '')}.png`}  alt={m} fill sizes="120px"  priority/></div>))  }
+    { data?.meal?.map(m =>(<div key={m} className="md:w-30 md:h-30 w-20 h-20 relative m-1 sm:m-3"> <Image className="absolute" src={`/food/${m?.replace(/\s+/g, '')}.png`}  alt={m} fill sizes="120px"  priority/></div>))  }
         </div>
       <div className="text-xs tracking-widest">  {data?.meal?.map(meal => meal.replace(/-/g, ' ')).join(', ')}</div>
         </div>

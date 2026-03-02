@@ -7,8 +7,8 @@ export default function ActivityLearning({data}){
     
  return (<div className="flex flex-col justify-center">
         <h2 className="text-center">{data?.children?.name || ''} did following activities</h2>
-<div className="flex flex-wrap justify-evenly gap-3 p-7">
- {data?.activities?.map((act,i)=><div key={act} className={`text-2xl lg:text-3xl tracking-wide uppercase font-extrabold p-3 w-fit rounded-2xl hover:rotate-1 ${color[i]}`}>{act}</div>)}
+<div className="flex flex-wrap justify-evenly gap-1 sm:gap-3 p-7">
+ {data?.activities?.map((act,i)=><div key={act} className={`text-lg odd:-rotate-2 even:rotate-2 sm:text-xl md:text-2xl lg:text-3xl tracking-wide uppercase font-extrabold p-3 w-fit rounded-2xl hover:rotate-1 ${color[i]}`}>{act}</div>)}
 </div></div>)
 
 
