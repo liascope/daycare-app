@@ -7,7 +7,7 @@ export default function HygieneCare ({data}){
         <YesNo title={`${data?.children?.name || ''} had diaper changed`} isTrue={data?.diaper}/>
          {data?.diaper && (
 <div className="flex flex-col items-center justify-center"><h2>{data?.children?.name || ''} did</h2><div className="w-30 h-30 relative m-3">
-        <Image className="absolute w-30 h-30" src={`/toilet/${data?.wcType ? '0' : '1'}.png`}  alt="wcTyle" fill sizes="120px"  priority/>
+        <Image className="absolute w-30 h-30" src={`/toilet/${data?.wcType ? '1' : '2'}.png`}  alt="wcTyle" fill sizes="120px"  priority/>
         </div> </div>
 
          )}
