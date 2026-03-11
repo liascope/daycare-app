@@ -21,8 +21,8 @@ export default function DownloadButton({ photos }) {
   }
 
   return (
-     <button className="z-50 cursor-pointer font-extrabold bg-linear-to-br from-teal-200 via-teal-400 to-teal-200
-      hover:via-teal-700 rounded-sm w-10 shadow-sm transition-colors absolute right-5 duration-300" onClick={downloadImages}>
+     <button className="z-10 cursor-pointer font-extrabold bg-linear-to-br from-teal-100/80 via-teal-300/80 to-teal-100/80
+      hover:via-teal-500/80 rounded-sm w-10 shadow-sm transition-colors absolute right-5 duration-300" onClick={downloadImages}>
        <Download/>
     </button>
   )
