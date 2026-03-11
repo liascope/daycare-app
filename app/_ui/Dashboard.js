@@ -40,9 +40,9 @@ while (photos.length < 3) {
       priority
     />
   </div>
-    <div className=" p-3 w-full flex items-center justify-center">Mood</div></Cards>
+    <div className="p-3 w-full flex items-center justify-center">Mood</div></Cards>
 
-<Cards style='border-y-4 rounded-l-xl border-l rounded-l-xl text-emerald-300 border-l rotate-2 hover:rotate-0 transition-transform duration-200' ><div className="p-3 w-full flex items-center justify-center">Appetite</div>
+<Cards style='border-y-4 rounded-l-xl border-l rounded-l-xl text-emerald-300 border-l rotate-2 hover:rotate-0 transition-transform duration-200' ><div className="p-2 sm:p-3 w-full flex items-center justify-center">Appetite</div>
         <div className="flex justify-center items-center p-2">
     <Image
      src={`/emojis/${data?.eat || 0}.png`}  alt={`emoji-${data?.eat || 0}`}
@@ -82,7 +82,7 @@ while (photos.length < 3) {
     {data?.hashs.length > 0 ? data?.hashs.map((h,i)=><li className="odd:text-amber-600/90 even:text-yellow-600/90" key={i}>{h}</li>) : <div className="text-amber-600 tracking-widest">#noIssues𖤓</div>}
     
   </ul>
-  <div className="p-5 w-full flex items-center justify-center">Issues</div></Cards>
+  <div className="sm:p-5 p-1 w-full flex items-center justify-center">Issues</div></Cards>
 </div>
      </div>)
 }
