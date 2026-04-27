@@ -15,7 +15,7 @@ const user = await getUser()
     notFound();}
 
   const reports = await getReport() 
-  if (!reports) {return (<div className="text-center py-10"><Spinner/>No report yet. <Spinner/>New report will be shown soon.<Spinner/></div>)}
+  if (!reports) {return (<div className="text-center tracking-widest uppercase py-10"><Spinner/>No reports yet. Come back later.<Spinner/></div>)}
 
   return (
     <>
