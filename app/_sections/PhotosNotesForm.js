@@ -23,18 +23,18 @@ export default function PhotosNotesForm() {
     <ReportSectionAdmin title="Photos & Notes" color="border-orange-300 bg-linear-to-r from-orange-300 to-orange-100" photo={true}>
       <div className="flex flex-col gap-2 items-center w-[90%]">
         <label
-          htmlFor="photos"
+          htmlFor="photosFile"
           className="cursor-pointer transition-all duration-300 hover:via-teal-400 py-4 rounded-sm text-white/90 uppercase font-extrabold tracking-widest bg-linear-to-br from-orange-200 via-orange-300 to-teal-50 px-5 mb-10"
         >
           Add photos
         </label>
-        <input id="photos" type="file" multiple accept="image/*" onChange={handlePhotoChange} className="hidden" />
+        <input id="photosFile" type="file" multiple accept="image/*" onChange={handlePhotoChange} className="hidden" />
         {photos.length > 0 && (
           <ul className="w-full p-1">
             {photos.map((photo, index) => (
-              <li key={index} className="flex flex-row items-center justify-between border-t text-sm gap-5 md:gap-2 text-stone-600 px-2">
+              <li key={photo?.name} className="flex flex-row items-center justify-between border-t text-sm gap-5 md:gap-2 text-stone-600 px-2">
                 <input
-                  id="photos"
+                  id={photo?.name}
                   className=" focus:outline-none focus:ring-0 focus:border-t-transparent border-r"
                   type="text"
                   value={photo.title}
