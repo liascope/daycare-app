@@ -20,7 +20,13 @@ export default function ReportedToday({ reportedToday }) {
       md:text-xl font-bold"
       >
         Reports Today
-        <span className="block text-sm font-semibold text-stone-500">{new Date(today).toLocaleDateString('de-DE')}</span>
+        <span className="block text-sm font-semibold text-stone-500">
+          {new Date(today).toLocaleDateString('de-DE', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+          })}
+        </span>
       </h2>
 
       {reportedToday?.length === 0 ? (

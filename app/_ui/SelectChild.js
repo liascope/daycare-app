@@ -5,16 +5,9 @@ export default function SelectChild({ allChildren }) {
   return (
     <div className="mb-10 flex justify-center">
       <div
-        className="
-          w-full
-    max-w-lg
-    rounded-2xl
-    border
-    border-stone-200
-    backdrop-blur-xl
-    p-6
-    shadow-sm
-    "
+        className="  w-full max-w-lg rounded-2xl border
+    border-stone-200  backdrop-blur-xl
+    p-6  shadow-sm   "
       >
         <label
           htmlFor="reportChild"

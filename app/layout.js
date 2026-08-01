@@ -20,7 +20,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${playpen.className} min-h-screen bg-gradient-to-br from-stone-100 via-white to-teal-50 text-stone-700 antialiased`}>
+      <body className={`${playpen.className} min-h-screen bg-linear-to-br from-stone-100 via-white to-teal-50 text-stone-700 antialiased`}>
         <div className="min-h-screen flex flex-col">
           <ScrollHeader header={<Header />}>
             <main className="flex-1">{children}</main>

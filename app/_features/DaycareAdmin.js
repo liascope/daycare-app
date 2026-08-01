@@ -18,7 +18,7 @@ export default function DaycareAdmin({ reportedToday, allChildren }) {
   if (!allChildren) return
 
   return (
-    <div className="font-sans w-full h-fit flex flex-col justify-center px-2">
+    <div className="w-full h-fit flex flex-col justify-center px-2">
       <h1 className="text-center font-extrabold text-2xl md:text-3xl my-10">Administration Panel</h1>
 
       <div className="relative w-full flex flex-col md:flex-row justify-between gap-2">

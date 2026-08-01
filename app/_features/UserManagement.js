@@ -11,9 +11,9 @@ export default function UserManagement({ allChildren }) {
       <h1
         onClick={() => setOpen((o) => !o)}
         className={`cursor-pointer text-lg md:text-xl transition-all duration-300 hover:via-teal-400 py-4
-          backdrop-blur-2xl border border-stone-200 shadow-sm rounded-2xl px-5 ${open ? 'uppercase tracking-wide' : 'normal-case tracking-normal'}`}
+          backdrop-blur-2xl border flex flex-row items-center justify-center border-stone-200 shadow-sm rounded-2xl px-5 ${open ? 'uppercase tracking-wide' : 'normal-case tracking-normal'}`}
       >
-        User Management
+        <span className="text-center w-full">User Management</span> <span className="w-fit">{open ? '⮝' : '⮟'}</span>
       </h1>
       {open && (
         <div className="absolute backdrop-blur-3xl mt-2 md:mt-3 rounded-2xl border border-stone-200 shadow-sm flex flex-col w-full gap-5 p-5 pb-10  border-b-2">

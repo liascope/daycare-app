@@ -54,7 +54,7 @@ export default function DeleteUser({ active, allChildren }) {
           )}
         </div>
       ) : (
-        <ul className="flex flex-col gap-2 transition-all duration-100 ">
+        <ul className="flex flex-col gap-2 transition-all duration-100 px-10 min-h-72">
           {allChildren?.map((child) => {
             return (
               <li
