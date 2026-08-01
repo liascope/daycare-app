@@ -1,16 +1,25 @@
-import { useFormStatus } from "react-dom"
-import Spinner from "./Spinner"
+import { useFormStatus } from 'react-dom'
+import Spinner from './Spinner'
 
-export default function SubmitButton ({children, disabled, deleteBtn =false}) {
-const { pending } = useFormStatus()
+export default function SubmitButton({ children, disabled, deleteBtn = false }) {
+  const { pending } = useFormStatus()
   return (
     <button
-    disabled={disabled}
+      disabled={disabled}
       type="submit"
-      className={`p-3 uppercase w-44 cursor-pointer font-extrabold 
-       text-white
-       shadow-sm transition-colors duration-300 ${deleteBtn ? 'bg-linear-to-br from-orange-200 via-orange-300 to-teal-50 px-5 py-2 cursor-pointer hover:via-orange-200 rounded' : 'rounded-xl bg-linear-to-br from-teal-200 via-teal-400 to-teal-200 hover:via-teal-600'}`}>
-      {pending ? <div className="scale-50"><Spinner padding="py-0"/></div>: children}
+      className={`w-full rounded-xl px-6 py-3 font-bold text-white transition-all duration-200 cursor-pointer hover:shadow-md
+    disabled:cursor-not-allowed
+    disabled:opacity-50 
+    active:scale-[0.98]
+    ${deleteBtn ? 'bg-orange-600 hover:bg-orange-700' : 'bg-teal-600 hover:bg-teal-700'}`}
+    >
+      {pending ? (
+        <div className="flex justify-center">
+          <Spinner padding="py-0" />
+        </div>
+      ) : (
+        children
+      )}
     </button>
   )
 }

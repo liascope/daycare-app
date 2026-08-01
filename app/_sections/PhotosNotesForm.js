@@ -21,56 +21,160 @@ export default function PhotosNotesForm() {
 
   return (
     <ReportSectionAdmin title="Photos & Notes" color="border-orange-300 bg-linear-to-r from-orange-300 to-orange-100" photo={true}>
-      <div className="flex flex-col gap-2 items-center w-[90%]">
-        <label
-          htmlFor="photosFile"
-          className="cursor-pointer transition-all duration-300 hover:via-teal-400 py-4 rounded-sm text-white/90 uppercase font-extrabold tracking-widest bg-linear-to-br from-orange-200 via-orange-300 to-teal-50 px-5 mb-10"
-        >
-          Add photos
-        </label>
-        <input id="photosFile" type="file" multiple accept="image/*" onChange={handlePhotoChange} className="hidden" />
+      <div className="flex flex-col gap-6">
+        {/* Upload */}
+        <div className="flex flex-col items-center gap-3">
+          <label
+            htmlFor="photosFile"
+            className="
+          flex
+          w-xs
+          cursor-pointer
+          items-center
+          justify-center
+          rounded-xl
+          border-2
+          border-dashed
+          border-orange-300
+          bg-orange-50
+          px-5
+          py-4
+          font-bold
+          md:uppercase
+          tracking-wide
+          text-orange-600/80
+          transition
+          hover:bg-orange-100
+        "
+          >
+            + Add photos
+          </label>
+
+          <input id="photosFile" type="file" multiple accept="image/*" onChange={handlePhotoChange} className="hidden" />
+
+          <p className="text-xs text-stone-500">Add photos from today's activities</p>
+        </div>
+
+        {/* Uploaded photos */}
         {photos.length > 0 && (
-          <ul className="w-full p-1">
+          <div className="flex flex-col gap-3">
             {photos.map((photo, index) => (
-              <li key={photo?.name} className="flex flex-row items-center justify-between border-t text-sm gap-5 md:gap-2 text-stone-600 px-2">
-                <input
-                  id={photo?.name}
-                  className=" focus:outline-none focus:ring-0 focus:border-t-transparent border-r"
-                  type="text"
-                  value={photo.title}
-                  onChange={(e) => updateTitle(index, e.target.value)}
-                  placeholder="Description"
-                />
-                <span className="text-xs p-1">{photo.name}</span>
-                <button type="button" className="hover:scale-95 cursor-pointer" onClick={() => removePhoto(index)}>
+              <div
+                key={photo.name}
+                className="
+              flex
+              gap-0.5
+              md:gap-3
+              rounded-xl
+              border
+              border-stone-200
+              bg-white
+              p-3
+              flex-row
+              items-start justify-between
+            "
+              >
+                <div className="flex md:flex-row flex-col gap-1 w-full md:items-center">
+                  <input
+                    type="text"
+                    value={photo.title}
+                    onChange={(e) => updateTitle(index, e.target.value)}
+                    placeholder="Description"
+                    className="flex-1
+                rounded-lg
+                border
+                border-stone-300
+                px-3
+                py-2
+                text-sm
+                outline-none
+                focus:border-orange-400
+              "
+                  />
+
+                  <span className="text-xs md:w-1/4 text-stone-400 px-1">{photo.name}</span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => removePhoto(index)}
+                  className="
+                rounded-lg
+                px-3
+                py-2
+                text-red-500
+                transition 
+                hover:bg-red-50
+              "
+                >
                   ❌
                 </button>
-              </li>
-            ))}{' '}
-          </ul>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Issues */}
+        {issueTags.length > 0 && (
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <span
+                className="
+              text-sm
+              font-bold
+              uppercase
+              tracking-wide
+              text-stone-500
+            "
+              >
+                Issues:
+              </span>
+
+              {issueTags.map((item) => (
+                <span
+                  key={item}
+                  className="
+                rounded-full
+                bg-red-100
+                px-3
+                py-1
+                text-sm
+                font-bold
+                text-red-600
+              "
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <textarea
+              required
+              id="notes"
+              rows={5}
+              value={form.comment}
+              onChange={(e) =>
+                setForm((f) => ({
+                  ...f,
+                  comment: e.target.value,
+                }))
+              }
+              placeholder="Describe the issue..."
+              className="
+            resize-none
+            rounded-xl
+            border
+            border-orange-300
+            p-4
+            outline-none
+            focus:border-orange-500
+            focus:ring-2
+            focus:ring-orange-100
+          "
+            />
+          </div>
         )}
       </div>
-      {issueTags.length > 0 && (
-        <>
-          <ul className="flex flex-wrap gap-2 items-center">
-            <h3 className="uppercase text-stone-600/50 tracking-wide text-sm font-extrabold">Issues:</h3>
-            {issueTags?.map((item) => (
-              <li className="odd:text-stone-600 even:text-stone-600/80 tracking-wide text-md font-extrabold" key={item}>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <textarea
-            required={issueTags.length > 0}
-            id="notes"
-            className="p-4 border-orange-300/50 border-2 rounded-l-4xl rounded-br-4xl  focus:outline-none focus:ring-0"
-            rows={5}
-            value={form.comment}
-            onChange={(e) => setForm((f) => ({ ...f, comment: e.target.value }))}
-            placeholder="issue notes"
-          />
-        </>
-      )}
     </ReportSectionAdmin>
   )
 }

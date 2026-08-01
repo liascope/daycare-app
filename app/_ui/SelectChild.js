@@ -1,21 +1,94 @@
 'use client'
-import { useDaycareForm } from "../_services/DaycareFormContext"
-export default function SelectChild ({allChildren}) {
-const {form, setForm} = useDaycareForm();
-   return (<div className="w-full flex justify-center md:justify-end">
-   <label htmlFor="reportChild" className="flex flex-row justify-between items-center md:w-[49%] lg:w-[35%] w-full cursor-pointer text-xl md:text-lg transition-all duration-300 hover:via-teal-400 py-4 rounded-sm text-white/90 uppercase font-extrabold tracking-widest bg-linear-to-bl from-orange-200 via-orange-300 to-orange-50 px-5 mb-10">Report for      
-<select required id='reportChild' className="focus:outline-none text-center focus:ring-0 focus:border-t-transparent font-extrabold uppercase tracking-widest text-lg md:text-xl lg:text-2xl" value={form?.id ?? ""} name="child_id"
-  onChange={(e) => { const value = e.target.value
- if (!value) { setForm(f=>({...f, id: "", name: "" }))
-   return }
-    const selectedChild = allChildren?.find(c => c.id === value)
-    if (!selectedChild) return
-    setForm(f=>({...f, id: selectedChild.id, name: selectedChild.name}))}}>
-  <option value=''> -- select --</option>
-  {allChildren?.map(child => (
-    <option className="text-teal-600/90 font-extrabold tracking-widest" key={child.id} value={child.id}>
-      {child.name} </option>))}
-</select>
-</label> 
-</div>)
+import { useDaycareForm } from '../_services/DaycareFormContext'
+export default function SelectChild({ allChildren }) {
+  const { form, setForm } = useDaycareForm()
+  return (
+    <div className="mb-10 flex justify-center">
+      <div
+        className="
+          w-full
+    max-w-lg
+    rounded-2xl
+    border
+    border-stone-200
+    backdrop-blur-xl
+    p-6
+    shadow-sm
+    "
+      >
+        <label
+          htmlFor="reportChild"
+          className="
+        mb-3
+        flex
+        items-center
+        gap-2
+        text-sm
+        font-extrabold
+        uppercase
+        tracking-wide
+        text-stone-700
+      "
+        >
+          Report for
+        </label>
+
+        <select
+          required
+          id="reportChild"
+          name="child_id"
+          value={form?.id ?? ''}
+          onChange={(e) => {
+            const value = e.target.value
+
+            if (!value) {
+              setForm((f) => ({
+                ...f,
+                id: '',
+                name: '',
+              }))
+              return
+            }
+
+            const selectedChild = allChildren?.find((c) => c.id === value)
+
+            if (!selectedChild) return
+
+            setForm((f) => ({
+              ...f,
+              id: selectedChild.id,
+              name: selectedChild.name,
+            }))
+          }}
+          className="
+        w-full
+        cursor-pointer
+        rounded-xl
+        border
+        border-stone-300
+        bg-white
+        px-4
+        py-3
+        font-semibold
+        text-stone-700
+        shadow-sm
+        outline-none
+        transition
+        hover:border-teal-400
+        focus:border-teal-500
+        focus:ring-2
+        focus:ring-teal-100
+      "
+        >
+          <option value="">Select a child...</option>
+
+          {allChildren?.map((child) => (
+            <option key={child.id} value={child.id}>
+              {child.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  )
 }
