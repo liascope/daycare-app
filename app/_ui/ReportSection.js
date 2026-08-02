@@ -1,5 +1,5 @@
 'use client'
-import { MessageSquareText } from 'lucide-react'
+import { MessageSquareText, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 
 export default function ReportSection({ title, color, children, issue = false }) {
@@ -22,8 +22,7 @@ export default function ReportSection({ title, color, children, issue = false })
           </span>{' '}
           {issue && !open && <MessageSquareText className="w-5 h-5 text-orange-700/60" />}
         </div>
-
-        <span className="text-xl transition-transform duration-300">{open ? '⮝' : '⮟'}</span>
+        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}></ChevronDown>
       </h1>
 
       <div className={`grid transition-all duration-500  ease-in-out ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
