@@ -1,40 +1,61 @@
+import PhotoSlider from '../_ui/PhotoSlider'
 
-import PhotoSlider from "../_ui/PhotoSlider";
+const titleColors = [
+  { title: '#eatDrink', color: 'text-emerald-600 bg-emerald-50 border-emerald-200' },
+  { title: '#sleepCalm', color: 'text-violet-600 bg-violet-50 border-violet-200' },
+  { title: '#moodBehavior', color: 'text-rose-600 bg-rose-50 border-rose-200' },
+  { title: '#activityLearning', color: 'text-cyan-600 bg-cyan-50 border-cyan-200' },
+  { title: '#hygeneCare', color: 'text-blue-600 bg-blue-50 border-blue-200' },
+]
 
-const titleColors =[
-    {title: "#eatDrink", color: "text-emerald-400"},
-    {title: "#sleepCalm", color: "text-violet-400"},
-    {title:"#moodBehavior", color:"text-rose-400"},
-    {title:"#activityLearning", color:"text-cyan-400"},
-    {title:"#hygeneCare", color:"text-blue-400"},]
+export default function PhotosNotes({ data }) {
+  const titles =
+    data?.hashs?.map((b) => ({
+      title: b,
+      color: titleColors.find((r) => r.title === b)?.color || 'text-stone-600 bg-stone-100 border-stone-200',
+    })) || []
 
-export default function PhotosNotes ({data}){
+  return (
+    <div className="flex flex-col gap-8 w-full">
+      {/* Photos */}
+      {data?.photos?.length > 0 && (
+        <div className="w-full">
+          <PhotoSlider images={data?.photos || []} />
+        </div>
+      )}
 
-const titles = data?.hashs.map(b => ({title: b, color: titleColors.find(r => r.title === b)?.color}))
+      {/* Notes */}
+      {data?.note && (
+        <div className="flex flex-col gap-4 rounded-3xl bg-stone-100/20 backdrop-blur-xl  p-5 md:p-8">
+          <h2
+            className="text-center text-lg md:text-xl
+              font-extrabold tracking-widest text-stone-700 mb-5"
+          >
+            Notes
+          </h2>
 
-    return (
-   <> 
-    <div className="w-full h-full">
-    <PhotoSlider images={data?.photos || []}/>
+          {titles.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-2">
+              {titles.map((b) => (
+                <span
+                  key={b.title}
+                  className={`px-3 py-1 rounded-full border text-xx md:text-sm font-bold tracking-wide
+                    ${b.color}`}
+                >
+                  {b.title}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <p
+            className="rounded-2xl backdrop-blur-xl px-5 py-5 md:px-8 md:py-8 text-sm md:text-base leading-relaxed font-medium shadow
+              text-stone-600"
+          >
+            {data.note}
+          </p>
+        </div>
+      )}
     </div>
-    
-  {data?.note && <div >
-   <h2 className="text-center mb-5">Notes:</h2>
-
-   <div className="flex flex-wrap items-center justify-center sm:gap-3 gap-1 my-2 normal-case">
-     {titles.map((b)=>(<span key={b.title} className={`font-extrabold ${b.color}`}>{b.title}</span>))}</div>
-
-<p className='mx-5 px-10 py-10 mt-5 bg-stone-50 text-sm rounded-bl-4xl rounded-r-4xl text-gray-700/80 normal-case text-shadow-none font-normal'> {data?.note || ''} </p></div>}
-
-  {/* <div >
-     <div className="flex flex-col gap-2 mt-4">
-       <label className="text-center">Questions / Comments :</label>
-       <textarea className="mx-10 p-4" rows={10} value={comment} onChange={(e) => setComment(e.target.value)} placeholder="..."/>
-     </div>
-     <button className="w-full flex items-center justify-center my-10 text-2xl font-bold" type="submit">
-        <div className="border-cyan-300 border-2 p-5 rounded-sm">Send</div></button>
-</div> */}
-</>
-    )
+  )
 }
- 
