@@ -7,7 +7,7 @@ export default function UserManagement({ allChildren }) {
   const [active, setActive] = useState({ register: true, delete: false })
 
   return (
-    <div className="relative w-full md:w-[50%] lg:w-[35%] font-bold text-sm text-center z-20 ">
+    <div className="relative w-full md:w-[50%] lg:w-[35%] font-bold text-sm text-center z-20">
       <h1
         onClick={() => setOpen((o) => !o)}
         className={`cursor-pointer text-lg md:text-xl transition-all duration-300 hover:via-teal-400 py-4

@@ -1,18 +1,7 @@
 export default function ReportedToday({ reportedToday }) {
   const today = new Date().toISOString().slice(0, 10)
   return (
-    <div
-      className="
-    flex-1
-    w-full
-    rounded-2xl
-    border
-    border-stone-200
-    backdrop-blur-2xl
-    p-5
-    shadow-sm
-  "
-    >
+    <div className="flex-1 w-full rounded-2xl border border-stone-200 backdrop-blur-2xl p-5 shadow-sm">
       <h2
         className="
       mb-4
@@ -34,18 +23,7 @@ export default function ReportedToday({ reportedToday }) {
       ) : (
         <div className="flex flex-wrap justify-center gap-2">
           {reportedToday.map((child) => (
-            <span
-              key={child}
-              className="
-            rounded-full
-            bg-teal-100
-            px-4
-            py-2
-            text-sm
-            font-bold
-            text-teal-700
-          "
-            >
+            <span key={child} className="rounded-full  bg-teal-100 px-4 py-2 text-sm  font-bold text-teal-700">
               ✓ {child}
             </span>
           ))}
