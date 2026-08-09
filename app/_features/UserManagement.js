@@ -17,7 +17,6 @@ export default function UserManagement({ allChildren }) {
       >
         <span className="text-center w-full">User Management</span>{' '}
         <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}></ChevronDown>
-        {/* <span className="w-fit">{open ? '⮝' : '⮟'}</span> */}
       </h1>
       {open && (
         <div className="absolute backdrop-blur-3xl mt-2 md:mt-3 rounded-2xl border border-stone-200 shadow-sm flex flex-col w-full gap-5 p-5 pb-10  border-b-2">

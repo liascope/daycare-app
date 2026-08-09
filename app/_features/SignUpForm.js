@@ -132,19 +132,6 @@ export default function SignUpForm({ active }) {
               name="password"
             />{' '}
           </label>
-          {/* <label htmlFor="rPassword" className="flex flex-row border-b  justify-left gap-7 items-center">
-            {' '}
-            Repeat Password:{' '}
-            <input
-              autoComplete="off"
-              id="rPassword"
-              required
-              className="focus:outline-none focus:ring-0 focus:border-t-transparent flex-1 w-full h-full"
-              type="password"
-              value={form.repeatPassword}
-              onChange={handleChange('repeatPassword')}
-            />{' '}
-          </label> */}
           <label htmlFor="rPassword" className="relative flex flex-row border-b justify-left gap-7 items-center">
             Repeat Password:
             <input

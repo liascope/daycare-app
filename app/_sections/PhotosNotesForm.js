@@ -26,26 +26,7 @@ export default function PhotosNotesForm() {
         <div className="flex flex-col items-center gap-3">
           <label
             htmlFor="photosFile"
-            className="
-          flex
-          w-xs
-          cursor-pointer
-          items-center
-          justify-center
-          rounded-xl
-          border-2
-          border-dashed
-          border-orange-300
-          bg-orange-50
-          px-5
-          py-4
-          font-bold
-          md:uppercase
-          tracking-wide
-          text-orange-600/80
-          transition
-          hover:bg-orange-100
-        "
+            className="flex w-xs cursor-pointer items-center justify-center rounded-xl border-2 border-dashed  border-orange-300 bg-orange-50 px-5 py-4 font-bold md:uppercase tracking-wide text-orange-600/80 transition  hover:bg-orange-100"
           >
             + Add photos
           </label>
@@ -61,18 +42,7 @@ export default function PhotosNotesForm() {
             {photos.map((photo, index) => (
               <div
                 key={photo.name}
-                className="
-              flex
-              gap-0.5
-              md:gap-3
-              rounded-xl
-              border
-              border-stone-200
-              bg-white
-              p-3
-              flex-row
-              items-start justify-between
-            "
+                className="flex gap-0.5 md:gap-3 rounded-xl border border-stone-200 bg-white p-3 flex-row   items-start justify-between"
               >
                 <div className="flex md:flex-row flex-col gap-1 w-full md:items-center">
                   <input
@@ -80,33 +50,13 @@ export default function PhotosNotesForm() {
                     value={photo.title}
                     onChange={(e) => updateTitle(index, e.target.value)}
                     placeholder="Description"
-                    className="flex-1
-                rounded-lg
-                border
-                border-stone-300
-                px-3
-                py-2
-                text-sm
-                outline-none
-                focus:border-orange-400
-              "
+                    className="flex-1 rounded-lg border border-stone-300 px-3 py-2 text-sm outline-none  focus:border-orange-400"
                   />
 
                   <span className="text-xs md:w-1/4 text-stone-400 px-1">{photo.name}</span>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => removePhoto(index)}
-                  className="
-                rounded-lg
-                px-3
-                py-2
-                text-red-500
-                transition 
-                hover:bg-red-50
-              "
-                >
+                <button type="button" onClick={() => removePhoto(index)} className="rounded-lg px-3 py-2 text-red-500 transition hover:bg-red-50">
                   ❌
                 </button>
               </div>
@@ -118,31 +68,10 @@ export default function PhotosNotesForm() {
         {issueTags.length > 0 && (
           <div className="flex flex-col gap-3">
             <div className="flex flex-wrap items-center gap-2">
-              <span
-                className="
-              text-sm
-              font-bold
-              uppercase
-              tracking-wide
-              text-stone-500
-            "
-              >
-                Issues:
-              </span>
+              <span className="text-sm font-bold uppercase tracking-wide text-stone-500">Issues:</span>
 
               {issueTags.map((item) => (
-                <span
-                  key={item}
-                  className="
-                rounded-full
-                bg-red-100
-                px-3
-                py-1
-                text-sm
-                font-bold
-                text-red-600
-              "
-                >
+                <span key={item} className="rounded-full bg-red-100 px-3 py-1 text-sm font-bold text-red-600">
                   {item}
                 </span>
               ))}
@@ -153,24 +82,9 @@ export default function PhotosNotesForm() {
               id="notes"
               rows={5}
               value={form.comment}
-              onChange={(e) =>
-                setForm((f) => ({
-                  ...f,
-                  comment: e.target.value,
-                }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, comment: e.target.value }))}
               placeholder="Describe the issue..."
-              className="
-            resize-none
-            rounded-xl
-            border
-            border-orange-300
-            p-4
-            outline-none
-            focus:border-orange-500
-            focus:ring-2
-            focus:ring-orange-100
-          "
+              className="resize-none rounded-xl border border-orange-300 p-4 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-100"
             />
           </div>
         )}
